@@ -1,0 +1,138 @@
+:root {
+    --box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
+}
+
+.titleDetails {
+    font-weight: 700;
+    font-size: 24px;
+    text-align: left;
+    padding: 25px;
+    text-overflow: ellipsis;
+}
+
+.detailsTicketBuyContainer {
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background: #a3959514;
+    box-shadow: 3px 2px 22px 1px #111c38;
+    border-radius: 10px;
+    /* padding: 20px; */
+    margin-top: 3%;
+}
+
+.buyAndDetails {
+    padding: 25px;
+    display: flex;
+    font-size: 16px;
+}
+
+.descriptionBuyBoxRow {
+    text-align: left;
+}
+
+.currentWorthSpan {
+    font-size: 20px;
+}
+
+.plusMinusButton {
+    background: linear-gradient(255.03deg, #F1521F 56.39%, #EF392E 98.32%);
+    border: 1px solid #EF392E;
+    padding: 12px 20px !important;
+    margin: 2px;
+    color: white !important;
+    height: auto !important;
+    margin-bottom: 1%;
+}
+
+.plusMinusButton:hover {
+    background: transparent;
+    border: 1px solid #EF392E !important;
+}
+
+.remainingTime {
+    margin-top: 3%;
+    text-align: center;
+    padding: 25px;
+}
+
+.timeButton {
+    background: linear-gradient(255.03deg, #F1521F 56.39%, #EF392E 98.32%);
+    color: #fff !important;
+    border: 3px solid #EF392E !important;
+    padding: 15px;
+    margin: 10px;
+    background: #a3959514;
+    font-size: 35px !important;
+    box-shadow: var(--box-shadow) !important;
+
+}
+
+.colonButton {
+    color: white !important;
+    font-size: 35px !important;
+    border-width: 0px !important;
+}
+
+.ticketsNumberInput {
+    width: 50% !important;
+    margin: 0px !important;
+}
+
+.raffleEndDate {
+    text-align: left;
+    padding: 25px;
+}
+
+.raffleEndDate span {
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.raffleDetailsBox {
+    border-radius: 15px;
+    padding: 10px;
+    color: white;
+}
+
+.raffleDetailsBox span {
+    font-size: 14px;
+}
+
+.raffleDetailsBox h6 {
+    font-weight: 700 !important;
+    font-size: 15px !important;
+}
+
+.raffleDetailsBoxContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1px;
+    /* background: #a3959514; */
+    border-radius: 25px;
+}
+
+.buyTicketRow {
+    padding: 25px !important;
+    text-align: left;
+}
+
+@media screen and (max-width: 991px) {
+    .ticketsNumberInput {
+        width: 100% !important;
+    }
+
+    .plusMinusButton {
+        width: 99% !important;
+    }
+
+    .titleDetails {
+        text-align: center;
+    }
+
+    .titleDetails span {
+        font-size: 16px !important;
+    }
+    
+}

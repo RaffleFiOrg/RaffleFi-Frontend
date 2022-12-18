@@ -1,0 +1,41 @@
+.formResaleTitle span {
+    font-weight: 600;
+    font-size: 32px;
+}
+
+.formResaleTitle {
+    text-align: left;
+    padding: 10px;
+    margin-bottom: 5%;
+}
+
+.resaleTicketSellButton {
+    margin: 5px !important;
+}
+
+.forminputResale {
+    margin: 3px !important;
+}
+
+.formInputRowResaleTicketSellForm {
+    gap: 0px !important;
+}
+
+.ticketResaleForm {
+    margin-top: 3%;
+    padding: 5px;
+}
+
+@media screen and (max-width: 991px) {
+    .resaleTicketSellFormButtonRow {
+        margin-top: 5% !important;
+    }
+
+    .forminputResale {
+        width: 100% !important;
+    }
+
+    .ticketResaleForm {
+        margin-top: 5%;
+    }
+}

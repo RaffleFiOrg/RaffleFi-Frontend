@@ -1,0 +1,69 @@
+.finishedRaffleDetailsBox {
+    width: 100%;
+    box-shadow: 3px 2px 22px 1px #111c38;
+    margin-top: 5%;
+    background: #a3959514;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.finishedRaffleDetailsTitle {
+    text-align: left;
+    font-size: 28px !important;
+}
+
+.finishedRaffleDetailsTitle span {
+    font-weight: 700;
+}
+
+.finishedRaffleSpan {
+    font-size: 20px;
+    font-weight: normal;
+    margin-left: 1%;
+}
+
+.statsRowFinished {
+    margin-top: 5%;
+}
+
+.finishedRaffleRow {
+    text-align: left !important;
+}
+
+@media screen and (max-width: 991px) {
+    
+    .finishedRaffleSpan {
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .finishedRaffleSpanWinner {
+        font-size: 20px !important;
+    }
+
+    .finishedRaffleDetailsTitle {
+        text-align: center;
+    }
+
+    .statsRowFinished {
+        text-align: left !important;
+    }
+
+    .finishedRaffleDetailsTitle span {
+        font-size: 28px;
+    }
+    
+    .finishedRaffleRow {
+        text-align: center !important;
+    }
+
+    .iconsDiv {
+        text-align: left;
+    }
+}
+
+@media screen and (max-width: 666px) {
+    .finishedRaffleSpanWinner {
+        font-size: 10px !important;
+    }
+}

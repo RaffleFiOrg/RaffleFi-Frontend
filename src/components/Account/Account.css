@@ -1,0 +1,19 @@
+.modalAccount {
+    color: white !important;
+}
+
+.modal-content {
+    background-image: url('../../assets/background.png');
+}
+
+.accountBtn {
+    background: linear-gradient(255.03deg, #F1521F 56.39%, #EF392E 98.32%);
+    color: #fff;
+    border: 1px solid #EF392E;
+    padding: 15px;
+    justify-content: center;
+}
+
+.modalAccountButtonsRow {
+    margin-top: 10%;
+}

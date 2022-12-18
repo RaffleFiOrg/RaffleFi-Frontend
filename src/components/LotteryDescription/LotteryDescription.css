@@ -1,0 +1,85 @@
+.lotteryDescriptionRow {
+    margin-top: 15% !important;
+    padding: 35px;
+    background: #a3959514;
+    box-shadow: 3px 2px 22px 1px #111c38;
+    border-radius: 10px;
+}
+
+.weeklyLotteryDescriptionRow {
+    margin-top: 5% !important;
+    padding: 35px;
+    background: #a3959514;
+    box-shadow: 3px 2px 22px 1px #111c38;
+    border-radius: 10px;
+}
+
+.monthlyLotterySpan {
+    font-weight: 700;
+    font-size: 46px;
+}
+
+.spanDiv {
+    text-align: left;
+}
+
+.checkIfYouWonButton {
+    width: 40%;
+    padding: 12px 20px;
+}
+
+.lotterDescriptionRow {
+    text-align: left;
+}
+
+.lotteryDescriptionSpan1 {
+    font-weight: 700 !important;
+    font-size: 40px !important;
+
+    text-align: left;
+}
+
+.lotterDescriptionRow3 {
+    margin-top: 5%;
+    text-align: left;
+}
+
+.remainingTimeLottery {
+    text-align: left;
+}
+
+.timeButton {
+    margin-left: 0px !important;
+}
+
+.formInputLotteryDescription {
+    width: 50% !important;
+}
+
+@media screen and (max-width: 991px) {
+    .spanDiv {
+        text-align: center !important;
+    }
+
+    .remainingTimeLottery {
+        text-align: center;
+        margin-bottom: 3%;
+    }
+
+    .iconsDiv {
+        margin-top: 5%;
+    }
+
+    .lotterDescriptionRow3 {
+        text-align: center !important;
+    }
+
+    .formInputLotteryDescription {
+        width: 100% !important;
+    }
+
+    .checkIfYouWonButton {
+        width: 250px;
+    }
+
+}

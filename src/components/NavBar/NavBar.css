@@ -1,0 +1,73 @@
+.header{
+    margin-top: 20px;
+}
+
+.nav-link {
+    color: #fff;
+    font-weight: normal !important;
+    font-size: 20px !important;
+    font-weight: 600 !important;
+}
+
+#offcanvasNavbarDropdown-expand-lg{
+    margin-right: 0;
+    text-align: center;
+}
+
+#offcanvasNavbar-expand-lg {
+    background:  #a3959514;
+}
+
+.pull-left{
+    display: contents;
+}
+
+button.btn.btn-connectOutline{
+    background: linear-gradient(255.03deg, #F1521F 56.39%, #EF392E 98.32%);
+    color: #fff;
+    border: 1px solid #EF392E;
+    padding: 15px;
+}
+
+button.btn.btn-connectOutline:hover{
+    background: transparent;
+}
+
+.thumbnail-image{
+    margin-right: 5px;
+    width: 30px;
+    height: 30px;
+}
+
+.navBarRaffleFiLogo {
+    width: 75px;
+    height: 80px;
+}
+
+.navBarRaffleFiLogSideMenu {
+    width: 58px;
+    height: 60px;
+}
+
+@media screen and (max-width: 991px) {
+  
+    button.btn.btn-connectOutline.nav {
+        margin-top: 20px;
+        width: 100%;
+        padding: 10px;
+    }
+
+    #offcanvasNavbar-expand-lg{
+        background-image: url('../../assets/background.png');
+    }    
+
+    .brandImg {
+        text-align: left !important;
+    }
+}
+
+.Toastify__toast {
+    font-style: 'Montserrat';
+    font-weight: 700;
+}
+

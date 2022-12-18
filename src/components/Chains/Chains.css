@@ -1,0 +1,19 @@
+.dropDownChains {
+    background-color: transparent !important;   
+    border: 1px solid white !important;
+    padding: 15px;
+    border-radius: 6px;
+}
+
+.dropDownChains:hover {
+    border-color: #EF392E !important;
+}
+
+.dropDownToggleChains {
+    background: transparent !important;
+    border: 0px !important;
+}
+
+.tooltipStyle {
+    color: #EF392E !important;
+}

@@ -1,0 +1,41 @@
+.accountAddressSpan {
+    font-weight: 600;
+    font-size: large;
+}
+
+.iconsDiv {
+    margin-top: 2%;   
+}
+
+.buttonRowProfileDescription {
+    text-align: left;
+}
+
+@media screen and (max-width: 991px) {
+    .accountAddressSpan {
+        font-size: 10px;
+        text-overflow: ellipsis;
+    }
+
+    .profileDescriptionSpanRow {
+        text-align: center !important;
+    }
+
+    .buttonRowProfileDescription {
+        margin-top: 5% !important;
+        text-align: center !important;
+
+    }
+}
+
+.profileStatsSpan {
+    margin-left: 2%;
+}
+
+.profileDescriptionRow {
+    margin-top: 5% !important;
+    padding: 35px;
+    background: #a3959514;
+    box-shadow: 3px 2px 22px 1px #111c38;
+    border-radius: 10px;
+}

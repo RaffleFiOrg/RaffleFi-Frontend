@@ -1,0 +1,10 @@
+.sellCardImg {
+    height: 250px;
+    width: 80%;
+    border-radius: 25px;
+    display: initial;
+    margin-bottom: -125px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -1,0 +1,58 @@
+.Banner {
+    margin-top: 5%;
+    text-align: left !important;
+}
+
+.active {
+    font-weight: 700;
+    font-size: 42px;
+    text-align: left;
+
+}
+
+.finished {
+    font-weight: 200;
+    font-size: 42px;
+    text-align: left;
+}
+
+.activeOrFinishedRow {
+    text-align: left;
+}
+
+.assetButton {
+    padding: 10px 12px;
+    margin-left: 10px;
+    margin-top: 12px;
+    height: fit-content;
+    font-size: 20px;
+    font-weight: 700;
+    width: 120px;
+}
+
+.rafflesNavigationButtons {
+    text-align: right !important;
+}
+
+@media screen and (max-width: 991px) {
+
+    .active {
+      font-size: 32px;
+    }
+    .finished {
+        font-size: 32px;
+    }  
+
+    .activeOrFinishedRow {
+        text-align: center !important;
+    }
+
+    .rafflesNavigationButtons {
+        text-align: center !important;
+    }
+  }
+
+.cancelRaffleDiv {
+    margin-top: 10px;
+    align-items: flex-start;
+}

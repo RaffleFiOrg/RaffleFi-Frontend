@@ -1,0 +1,47 @@
+.cancelResaleButton {
+    background: linear-gradient(255.03deg, #F1521F 56.39%, #EF392E 98.32%);
+    border: 1px solid #EF392E;
+    padding: 12px 20px !important;
+    color: white !important;
+    height: auto !important;
+    margin: 2px 2px 0px !important;
+}
+
+.cancelResaleButton:hover {
+    background: transparent;
+    border: 1px solid #EF392E !important;
+}
+
+.resaleTicketBoxContainer {
+    margin-top: 0% !important;
+    padding: 25px;
+}
+
+.resaleTicketBoxBuyButton {
+    margin-bottom: 0px !important;
+}
+
+.forminputResaleTicketBox {
+    width: 100% !important;
+}
+
+.buyAndDetailsTickets {
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 991px) {
+
+    .forminputResaleTicketBox {
+        width: 100% !important;
+    }
+
+    .resaleTicketBoxContainer {
+        margin-top: 5% !important;
+    }
+
+    .titleDetails {
+        text-align: center;
+    }
+    
+}

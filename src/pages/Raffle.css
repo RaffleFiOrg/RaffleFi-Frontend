@@ -1,0 +1,49 @@
+.raffleImg {
+    width: 80%;
+    border-radius: 25px;
+}
+
+.raffleRow {
+    margin-top: 5% !important;
+}
+
+.singleImageCard {
+    margin: auto;
+    margin-bottom: 5%;
+    color: re
+}
+
+.ethIcon {
+    width: 25px;
+    height: 25px;
+    filter: invert(100%) sepia(6%) saturate(25%) hue-rotate(185deg) brightness(109%) contrast(107%);
+    margin-bottom: -100px;
+
+}
+
+.iconLeft {
+    margin-left: 10px;
+}
+
+.iconRight {
+    margin-right: 10px;
+}
+
+.iconsBox {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    
+}
+
+@media screen and (max-width: 991px) {
+  
+    .iconLeft {
+        margin-left: 5px;
+    }
+
+    .iconRight {
+        margin-right: 5px;
+    }
+    
+  }

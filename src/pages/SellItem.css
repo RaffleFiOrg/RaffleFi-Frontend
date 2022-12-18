@@ -1,0 +1,90 @@
+.createRaffleButton {
+    margin: 5px;
+}
+
+.formcontainer {
+    /* padding: 20px; */
+    text-transform: uppercase;
+    color: white;
+    /* background: #a3959514; */
+    background: transparent;
+    margin: auto;
+    /* box-shadow: 3px 2px 22px 1px #111c38; */
+}
+
+.forminput {
+    margin: 5px;
+    border: 2px solid #EF392E;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: black !important;
+    width: 100%;
+    padding: 12px 20px;
+    outline-width: 0px !important;
+}
+
+.formInputRow {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.forminput:active {
+    transform: scale(0.90);
+    box-shadow: 3px 2px 22px 1px #EF392E;
+    border: solid !important;
+}
+
+.forminput:hover {
+    border-color: #EF392E;
+}
+
+.sellItemRow {
+    margin-top: 5% !important;
+}
+
+.titleDetailsSell {
+    font-weight: 700;
+    font-size: 28px;
+    text-align: left;
+    margin: auto;
+    padding: 15px;  
+}
+
+.buttonsRowSellItem {
+    display: flex;
+    justify-content: left;
+}
+
+.alertWhitelists {
+    margin-top: 5% !important;
+}
+
+.alertWhitelists p {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+@media screen and (max-width: 991px) {
+    
+    .formcontainer {
+        margin-top: 5%;
+    }
+
+    .formInputRow {
+        flex-flow: wrap !important; 
+        gap: 0px;
+    }
+
+    .titleDetailsSell {
+        text-align: center;
+    }
+
+    .buttonsRowSellItem {
+        flex-wrap: wrap;
+    }
+
+    .createRaffleButton {
+        width: 100%;
+    }
+}

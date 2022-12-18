@@ -1,0 +1,42 @@
+:root {
+    --box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
+}
+
+.metadataBox {
+    border: 1px solid #EF392E;
+    box-shadow: var(--box-shadow);
+    border-radius: 15px;
+    padding: 10px;
+    text-transform: uppercase;
+    font-size: 15px;
+    color: white;
+}
+
+.metadataBox:hover {
+    transform: scale(0.98);
+}
+
+.boxContainer {
+    gap: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+
+}
+
+.metadataContainer {
+    width: 80%;
+    margin: auto;
+    margin-top: 5%;
+    padding: 25px;
+    background: #a3959514;
+    box-shadow: 3px 2px 22px 1px #111c38;
+}
+
+.boxContainer span {
+    font-size: 12px;
+}
+
+.boxContainer h6 {
+    font-weight: 600 !important;
+    font-size: 15px !important;
+}

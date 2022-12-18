@@ -1,0 +1,46 @@
+.Foooter{
+    margin: 30px;
+}
+
+.copyrights p{
+    text-align: left;
+}
+
+.support a{
+    float: right;
+    text-decoration: none;
+    color: white;
+}
+
+.support a:hover {
+    color: rgb(248, 153, 153);
+}
+
+.SocialIcons{
+    background-color: #F1521F;
+    width: 100%;
+    margin-top: 5%;
+    padding: 40px 20px;
+}
+
+.socialShare{
+    margin: 10px;
+    margin-top: 25px;
+}
+
+.socialShare a{
+    text-decoration: none;
+    color: #fff;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.SocialIcons a svg{
+    height: 20px;
+    width: 20px;
+    box-sizing: border-box;
+}
+
+.socialShare a svg:hover{
+    color: rgb(248, 153, 153)
+}

@@ -1,0 +1,49 @@
+
+.collection {
+  margin-top: 5% !important;
+  padding: 10px;
+}
+  
+.collection p {
+  font-size: 28px;
+  line-height: 49px;
+  font-weight: bold;
+  letter-spacing: 0em;
+}
+  
+.sliderHeading {
+  display: inline-block;
+}
+
+.sliderTitleRow {
+  margin: 20px;
+  justify-content: left;
+}
+
+.sortButton {
+  width: 120px;
+  margin: 10px;
+}
+
+.collectionSliderButtons {
+  text-align: right !important;
+}
+
+.collectionSliderTitle {
+  text-align: left !important;
+}
+
+@media screen and (max-width: 991px) {
+
+    .collection {
+      padding: 25px;
+    }
+  
+    .collectionSliderTitle {
+      text-align: center !important;
+    }
+
+    .collectionSliderButtons {
+      text-align: center !important;
+    }
+}

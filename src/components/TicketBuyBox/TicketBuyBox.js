@@ -4,7 +4,7 @@ import { toast } from 'react-toastify'
 import { useWeb3React } from '@web3-react/core'
 import { getEllipsisTxt, unixToDate } from '../../utils/formatting'
 import { buyATicketForm } from '../../utils/formSubmissions'
-import { cancelRaffle, completeRaffle } from '../../utils/Web3Functions'
+import { cancelRaffle, completeRaffle } from '../../utils/web3Functions'
 import { useNavigate } from 'react-router-dom'
 import { utils } from 'ethers'
 

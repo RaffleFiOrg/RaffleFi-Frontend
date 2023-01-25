@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Button } from 'react-bootstrap'
 import { toast } from 'react-toastify'
-import { signTransaction, postSellOrder } from '../../utils/Web3Functions'
+import { signTransaction, postSellOrder } from '../../utils/web3Functions'
 import { BigNumber, utils } from 'ethers'
 import { getEllipsisTxt, unixToDate } from '../../utils/formatting'
 import { useWeb3React } from '@web3-react/core'

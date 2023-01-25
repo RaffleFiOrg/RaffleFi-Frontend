@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Button, Col, Row } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
-import { checkIfIWonWeekly } from '../../utils/Web3Functions';
 import { toast } from 'react-toastify';
+import { checkIfIWonWeekly } from '../../utils/web3Functions';
 
 export default function WeeklyLotteryDescription(props) {
 

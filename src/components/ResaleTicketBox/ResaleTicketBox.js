@@ -4,7 +4,7 @@ import { BigNumber, utils } from 'ethers'
 import { useWeb3React } from '@web3-react/core'
 import { unixToDate } from '../../utils/formatting'
 import { toast } from 'react-toastify'
-import { cancelSellOrder } from '../../utils/Web3Functions'
+import { cancelSellOrder } from '../../utils/web3Functions'
 import { buyATicketFromMarketplace } from '../../utils/formSubmissions'
 import { useNavigate } from 'react-router-dom'
 

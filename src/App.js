@@ -13,7 +13,6 @@ import TicketBuy from './pages/TicketBuy';
 import TicketSale from './pages/TicketSale';
 import { BrowserRouter as Router, Routes,  Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 import 'react-toastify/dist/ReactToastify.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -39,7 +38,6 @@ export default function App() {
         <div className="App">
             <Router>
                 <QueryClientProvider client={queryClient}>
-                  <ReactQueryDevtools />
                     <NavBar />
                     <Routes>
                         <Route path='/' element={<Home />}/>  

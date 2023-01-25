@@ -14,7 +14,7 @@ import { approveToken,
     getOpeningFee,
     increaseAllowance,
     postBuyOrder,
-} from "./Web3Functions";
+} from "./web3Functions";
 import { ethers, BigNumber, utils } from "ethers";
 import { 
     emptyMerkleProof, 

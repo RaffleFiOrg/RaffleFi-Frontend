@@ -35,6 +35,7 @@
     "start": "parcel ./public/index.html",
     "build": "parcel build ./public/index.html",
     "start:prod": "parcel serve ./public/index.html --https",
+    "start:testnet": "parcel ./public/index.html --host 0.0.0.0",
     "lint": "eslint ./src/**/*.js"
   },
   "devDependencies": {

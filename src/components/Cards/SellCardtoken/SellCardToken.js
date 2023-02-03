@@ -12,8 +12,8 @@ export default function SellCardToken(props) {
     let symbol = props.data.symbol
     if (symbol && symbol.length > 15) symbol = symbol.substring(0, 15)
 
-    let balance = props.data.balance 
-    if (String(parseFloat(balance).toFixed(2)).length > 8) balance = String(parseFloat(balance).toFixed(2)).substring(0, 8)
+    let balance = parseFloat(props.data.balance).toFixed(2).toString() 
+    if (balance.length > 7) balance = `${balance.substring(0, 7)}..`
 
     return (
         <Link to={props.data.token_address} 

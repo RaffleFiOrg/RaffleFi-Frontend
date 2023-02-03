@@ -1,6 +1,5 @@
 import React from 'react'
 import { utils } from 'ethers'
-import { _getTokenMetadata } from '../../../utils/apiCalls'
 
 import Logo from '../../../assets/footerLogo.png'
 

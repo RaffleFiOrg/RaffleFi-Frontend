@@ -4,32 +4,26 @@ import Loading from '../../../assets/nft.png'
 
 import './SellCardToken.css'
 
+/// This component is used to display the token cards in the sell page
 export default function SellCardToken(props) {
-
+    // if we don't have any data, don't render anything
     if (Object.keys(props.data).length === 0) return 
 
     let symbol = props.data.symbol
-    if (symbol && symbol.length > 15) {
-        symbol = symbol.substring(0, 15)
-    }
+    if (symbol && symbol.length > 15) symbol = symbol.substring(0, 15)
+
+    let balance = props.data.balance 
+    if (String(parseFloat(balance).toFixed(2)).length > 8) balance = String(parseFloat(balance).toFixed(2)).substring(0, 8)
 
     return (
         <Link to={props.data.token_address} 
         className="cardLink"
         state={{ assetData: props.data, assetType: props.assetType, whitelistedCurrencies: props.whitelistedCurrencies }}>
              <div className="generalCard">
-                {
-                    props.data.type === 'img' ?
-                    <img 
-                    className="sellCardTokenImg"
-                    src={props.data.logo ? props.data.logo : Loading} 
-                    /> :
-                    <img 
-                    className="sellCardTokenImg"
-                    src={`data:image/svg+xml;base64,${props.data.logo}`} 
-                    />
-                }
-                  
+                <img 
+                className="sellCardTokenImg"
+                src={props.data.logo ? props.data.logo : Loading} 
+                /> 
                 <div className="cardAbout">
                     <div className="cardDetails">
                         <div className="about">
@@ -37,7 +31,7 @@ export default function SellCardToken(props) {
                         </div>
                     </div>
                     <div className="cardPrice cardPriceToken">
-                        <span>{parseFloat(props.data.balance).toFixed(2)}</span>
+                        <span>{balance}</span>
                         <span>{symbol}</span>
                     </div>
                 </div>

@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { getEllipsisTxt } from '../../../utils/formatting';
 import Loading from '../../../assets/nft.png'
 
 import './SellCard.css'

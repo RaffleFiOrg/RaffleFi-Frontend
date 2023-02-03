@@ -1,13 +1,16 @@
 import { ethers, BigNumber, utils } from 'ethers';
 import MainnetABI from '../abi/MainnetEscrow.json';
-import RafflesABI from '../abi/MockRafflePolygon.json';
-import TicketsABI from '../abi/MockRaffleTicketSystem.json';
+import RafflesABI from '../abi/Raffles.json';
+import TicketsABI from '../abi/RaffleTicketSystem.json';
 import ERC721ABI from '../abi/ERC721.json';
 import ERC20ABI from '../abi/ERC20.json';
-import WeeklyLotteryAbi from '../abi/WeeklyLottery.json';
 import { toast } from 'react-toastify';
 import { 
+    allowedChains,
+    l2Faucet,
     mainnetContractAddress, 
+    mainnetFaucet, 
+    nftFaucet, 
     rafflesAddress, 
     ticketsAddress 
 } from './constants';
@@ -323,7 +326,7 @@ export const checkAllowance = async (contractAddress, to) => {
 
 export const checkApproved = async (contractAddress, tokenId) => {
     try {
-        const contract = new ethers.Contract(contractAddress, ERC721ABI, provider);
+        const contract = new ethers.Contract(contractAddress, ERC721ABI.abi, provider);
         const approved = contract.getApproved(tokenId);
         return approved;
     } catch (e) {
@@ -459,106 +462,6 @@ export const signTransaction = async (
     }
 }
 
-export const getCurrentWeeklyLottery = async () => {
-    try {
-        const weeklyContract = new ethers.Contract(
-            process.env.REACT_APP_CONTRACT_WEEKLY_LOTTERY,
-            WeeklyLotteryAbi.abi, // add abi 
-            signer
-        )
-        return await weeklyContract.currentWeek()
-    } catch (e) {
-        toast.warn(`Failed to get the current weekly lottery index`)
-        return -1
-    }
-}
-
-export const addToWeeklyPool = async (tokenAddress, amount, valueToSend) => {
-    try {
-        const weeklyContract = new ethers.Contract(
-            process.env.REACT_APP_CONTRACT_WEEKLY_LOTTERY,
-            "",
-            signer
-        )
-        const tx = await weeklyContract.connect(signer).addToWeeklyPool(
-            tokenAddress, amount, {
-                value: valueToSend
-            });
-        const receipt = await tx.wait();
-        if (receipt.status === 1) {
-            toast.success(`Added ${amount} to the weekly pool`)
-            return true 
-        } else {
-            toast.warn(`Failed to add ${amount} to the weekly pool`)
-            return false 
-        }
-    } catch (e) { return false}
-}
-
-export const checkIfIWonWeekly = async (week) => {
-    try {
-        const weeklyContract = new ethers.Contract(
-            process.env.REACT_APP_CONTRACT_WEEKLY_LOTTERY,
-            "",
-            signer
-        )
-        const result = await weeklyContract.connect(signer).haveIWon(week);
-        return result;
-    } catch (e) {
-        return false;
-    }
-}
-
-export const addToMonthlyLottery = async (
-    tokenAddress,
-    tokenId,
-    shares,
-    merkleProof
-) => {
-    try {
-        const contract = new ethers.Contract(
-            process.env.REACT_APP_CONTRACT_MONTHLY_LOTTERY_ERC721,
-            "",
-            signer
-        );
-
-        const tx = await contract.connect(signer).addToMonthlyPool(
-            tokenAddress,
-            tokenId,
-            shares,
-            merkleProof
-        );
-        const receipt = await tx.wait();
-        if (receipt.status === 1) {
-            toast.success(`Added ${tokenAddress} to the monthly pool`)
-            return true 
-        } else {
-            toast.warn(`Failed to add ${tokenAddress} to the monthly pool`)
-            return false 
-        }
-    } catch (e) { return false}
-}
-
-export const claimLottery = async (contractAddress, month) => {
-    try {
-        const contract = new ethers.Contract(
-            contractAddress,
-            "",
-            signer
-        );
-
-        const tx = await contract.connect(signer).claimLottery(month);
-        const receipt = await tx.wait();
-        if (receipt.status === 1) {
-            toast.success("Claimed the lottery for this month");
-            return true
-        } else {
-            toast.warn("Could not claim the lottery, check if you actually won");
-            return false 
-        }
-    } catch (e) { return false }
-}
-
 export const getBalance = async (contractAddress) => {
     try {
         const contract = new ethers.Contract(
@@ -566,9 +469,49 @@ export const getBalance = async (contractAddress) => {
             ERC20ABI.abi,
             signer
         ); 
-
         return await contract.balanceOf(await signer.getAddress())
     } catch (e) {
         return -1
+    }
+}
+
+/// Mint testnet tokens
+export const tokenFaucet = async (chainId) => {
+    if (!allowedChains.includes(chainId)) {
+        toast.warning("You need to be connected to either Goerli or Arbitrum Goerli")
+        return 
+    }
+    const faucetAddress = chainId === 5 ? mainnetFaucet : l2Faucet
+    try {
+        const faucetContract = new ethers.Contract(
+            faucetAddress,
+            ERC20ABI.abi,
+            signer
+        );
+        const tx = await faucetContract.mint(await signer.getAddress(), ethers.utils.parseEther("100"));
+        const receipt = await tx.wait();
+        if (receipt.status !== 1) toast.warning("Could not mint tokens on this network")
+        else toast.success("100 Test tokens minted")
+    } catch (e) {
+        console.log(e)
+        toast.warning("Could not mint tokens on this network")
+    }
+}
+
+/// Mint testnet NFT
+export const NFTFaucet = async () => {
+    try {
+        const nftContract = new ethers.Contract(
+            nftFaucet,
+            ERC721ABI.abi,
+            signer
+        )
+        const tx = await nftContract.safeMint(await signer.getAddress())
+        const receipt = await tx.wait();
+        if (receipt.status !== 1) toast.warning("Could not mint testnet NFT")
+        else toast.success("Test NFT minted")
+    } catch (e) {
+        console.log(e)
+        toast.warning("Could not mint testnet NFT")
     }
 }

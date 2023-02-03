@@ -12,3 +12,6 @@ export const emptyMerkleRoot = constants.HashZero
 export const l2ChainName = String(process.env.REACT_APP_L2_CHAIN_NAME)
 export const l2Chain = Number(process.env.REACT_APP_L2_CHAIN)
 export const allowedChains = [1, 5, l2Chain] // chains which we can be connected on
+export const mainnetFaucet = process.env.REACT_APP_TESTNET_TOKEN_ADDRESS_MAINNET
+export const l2Faucet = process.env.REACT_APP_TESTNET_TOKEN_ADDRESS_L2
+export const nftFaucet = process.env.REACT_APP_TESTNET_NFT_ADDRESS

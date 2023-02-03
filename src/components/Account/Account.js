@@ -14,6 +14,7 @@ import { allowedChains } from "../../utils/constants"
 
 import '../NavBar/NavBar.css';
 import './Account.css'
+import { NFTFaucet, tokenFaucet } from "../../utils/web3Functions"
 
 const Injected = new InjectedConnector({
     supportedChainIds: allowedChains
@@ -188,6 +189,15 @@ export default function Account() {
                                         Disconnect
                                     </Button> 
                                 </div>
+                                <div className="modalAccountButtonsRow">
+                                    <Button
+                                    variant="connectOutline"
+                                    onClick={async () => {
+                                        await NFTFaucet()
+                                    }}>
+                                        NFT faucet 
+                                    </Button>
+                                </div>
                             </ModalBody>
                             <ModalBody className="text-center">
                                 <div>
@@ -196,6 +206,15 @@ export default function Account() {
                                 </div>
                                 <div className="modalAccountButtonsRow">
                                     <Chains />
+                                </div>
+                                <div className="modalAccountButtonsRow">
+                                    <Button
+                                    variant="connectOutline"
+                                    onClick={async () => {
+                                        await tokenFaucet(chainId)
+                                    }}>
+                                        Token faucet 
+                                    </Button>
                                 </div>
                             </ModalBody>
                         </div>

@@ -3,7 +3,6 @@ import NavBar from './components/NavBar/NavBar';
 import Foooter from './components/Footer/Footer';
 import Home from './pages/Home';
 import Marketplace from './pages/Marketplace';
-import Lotteries from './pages/Lotteries';
 import Profile from './pages/Profile';
 import Raffle from './pages/Raffle';
 import Raffles from './pages/Raffles';
@@ -46,7 +45,6 @@ export default function App() {
                         <Route path='/sell' element={<Sell />}/>
                         <Route path='/sell/:address' element={<SellItem />}/>
                         <Route path='/ticket-marketplace' element={<Marketplace />}/>
-                        <Route path='/lotteries' element={<Lotteries />} />
                         <Route path='/profile' element={<Profile />}/>
                         <Route path='/ticket/buy/:raffleId/:ticketId' element={<TicketBuy />} />
                         <Route path='/ticket/sell/:raffleId/:ticketId' element={<TicketSale />} /> 

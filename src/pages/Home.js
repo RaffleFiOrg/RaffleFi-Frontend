@@ -1,7 +1,6 @@
 import React, { useState} from 'react';
 import { Col, Row, Button, Container } from 'react-bootstrap';
 import CollectionSlider from '../components/CollectionSlider/CollectionSlider';
-import LotteryWidget from '../components/LotteryWidget/LotteryWidget';
 import { 
     _getWhitelistedCurrencies, 
     _getActiveRafflesERC721, 
@@ -61,29 +60,6 @@ export default function Home() {
 
     return (
         <Container>
-            <Row className="text-center homeLotteryRow">
-                <p className="homeTitle">Active Lotteries</p>
-                <p className="homeSubtitle">Try your luck every week and every month</p>
-            </Row>
-            <Row>
-                <Col>
-                    <LotteryWidget 
-                    lotteryType={'Weekly Lottery'} 
-                    />
-                </Col>
-                <Col>
-                    <LotteryWidget 
-                    lotteryType={'Monthly Lottery'}
-                    assetType={'erc721'}
-                    />
-                </Col>
-                <Col>
-                    <LotteryWidget 
-                    lotteryType={'Monthly Lottery'}
-                    assetType={'erc20'}
-                    />
-                </Col>
-            </Row>    
             <Row className="homePageTitleAndButtonsRow">
                 <Col className="d-flex justify-content-lg-start justify-content-center">
                     <p className="homeTitle">Active Raffles</p>

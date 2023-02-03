@@ -47,7 +47,6 @@ export default function NavBar() {
                             <Nav.Link href="/sell">Sell</Nav.Link>
                             <Nav.Link href="/ticket-marketplace">Resale</Nav.Link>
                             <Nav.Link href="/profile">Profile</Nav.Link>
-                            <Nav.Link href='/lotteries'>Lotteries</Nav.Link>
                         </Nav>
                         <Account />
                         </Offcanvas.Body>

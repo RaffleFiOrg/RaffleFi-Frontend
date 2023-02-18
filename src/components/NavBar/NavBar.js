@@ -7,6 +7,7 @@ import Logo from '../../assets/RaffleFi_center.png';
 import Account from '../Account/Account';
 import { ToastContainer } from 'react-toastify';
 import './NavBar.css';
+import { Link } from 'react-router-dom';
 
 export default function NavBar() {
 
@@ -42,11 +43,11 @@ export default function NavBar() {
                         </Offcanvas.Header>
                         <Offcanvas.Body>
                         <Nav className="justify-content-center flex-grow-1">
-                            <Nav.Link href="/">Home</Nav.Link>
-                            <Nav.Link href="/raffles">Raffles</Nav.Link>
-                            <Nav.Link href="/sell">Sell</Nav.Link>
-                            <Nav.Link href="/ticket-marketplace">Resale</Nav.Link>
-                            <Nav.Link href="/profile">Profile</Nav.Link>
+                            <Link className="nav-link" to='/'>Home</Link>
+                            <Link className="nav-link" to='/raffles'>Raffles</Link>
+                            <Link className="nav-link" to='/sell'>Sell</Link>
+                            <Link className="nav-link" to='/ticket-marketplace'>Resale</Link>
+                            <Link className="nav-link" to='/profile'>Profile</Link>
                         </Nav>
                         <Account />
                         </Offcanvas.Body>

@@ -41,8 +41,6 @@ export default function TicketSale() {
         enabled: !!chainId && !!ticketData && ticketData.raffleType === 'ERC721'
     })
 
-    console.log('here',ticketData)
-
     return (
         <Container>
             <Row className='ticketBuyRow'>

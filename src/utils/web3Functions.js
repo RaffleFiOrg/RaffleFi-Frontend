@@ -119,7 +119,8 @@ export const completeRaffle = async (raffleId) => {
         }
     } catch (e) { 
         console.log(e)
-        return false }
+        return false 
+    }
 }
 
 export const claimRaffle = async (raffleId) => {

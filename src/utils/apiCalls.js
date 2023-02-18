@@ -12,7 +12,6 @@ const client2 = axios.create({
 
 export const _getWhitelistedCurrencies = async () => {
     const response = await client.get("currencies")
-    console.log(response)
     return response.data
 }
 

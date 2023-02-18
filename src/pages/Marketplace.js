@@ -66,7 +66,6 @@ export default function Marketplace() {
 
         return (
             Object.entries(showing).map(([key, value]) =>  {
-                console.log('I have data', showing)
                 return (
                     <TicketsSlider 
                     whitelistedCurrencies={whitelistedCurrencies}

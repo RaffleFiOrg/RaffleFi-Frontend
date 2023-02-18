@@ -17,7 +17,6 @@ export default function TicketBuy() {
     const { chainId } = useWeb3React()
     const locationData = useLocation()
 
-    console.log(locationData.pathname.split('/')[3])
     // The data of a ticket on sale by another user
     const { data: saleData } = useQuery({
         queryKey: ['saleData'],
@@ -33,9 +32,6 @@ export default function TicketBuy() {
         queryFn: () => _getFloorPrice(saleData.assetContract, chainId),
         enabled: !!chainId && !!saleData && saleData.raffleType === 'ERC721'
     })
-
-    console.log('saledata', saleData)
-
 
     return (
         <Container>

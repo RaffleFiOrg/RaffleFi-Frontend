@@ -244,7 +244,9 @@ export const buyATicketForm = async (
     pricePerTicket,
     currency,
 ) => {
-
+    console.log(
+        raffleId 
+    )
     try {
         // check that we have enough balance
         const balance = await getBalance(currency)

@@ -1,4 +1,4 @@
-import { ethers, BigNumber, utils } from 'ethers';
+import { Contract, BigNumber, constants, providers, utils } from 'ethers';
 import MainnetABI from '../abi/MainnetEscrow.json';
 import RafflesABI from '../abi/Raffles.json';
 import TicketsABI from '../abi/RaffleTicketSystem.json';
@@ -15,21 +15,21 @@ import {
     ticketsAddress 
 } from './constants';
 
-const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
+const provider = new providers.Web3Provider(window.ethereum, "any");
 const signer = provider.getSigner();
 
-const mainnetContract = new ethers.Contract(
+const mainnetContract = new Contract(
     mainnetContractAddress,
     MainnetABI.abi,
     signer
 )
-const rafflesContract = new ethers.Contract(
+const rafflesContract = new Contract(
     rafflesAddress,
     RafflesABI.abi,
     provider
 )
 
-const ticketsContract = new ethers.Contract(
+const ticketsContract = new Contract(
     ticketsAddress,
     TicketsABI.abi,
     provider 
@@ -152,7 +152,7 @@ export const claimCancelledRaffle = async (raffleId) => {
 
 export const buyTickets = async (quantity, currency, pricePerTicket, raffleId, merkleProof) => {
     try {
-        const valueToSend = currency === ethers.constants.AddressZero ?  
+        const valueToSend = currency === constants.AddressZero ?  
             BigNumber.from(pricePerTicket).mul(BigNumber.from(quantity)) 
             : BigNumber.from(0);
         const tx = await rafflesContract.connect(signer).buyRaffleTicket(
@@ -206,7 +206,7 @@ export const getFreshOrderData = async (ticketId, raffleId) => {
 }
 
 export const postBuyOrder = async (raffleId, ticketId, ticketRecipient, currency, salePrice) => {
-    const valueToSend = currency === ethers.constants.AddressZero ?
+    const valueToSend = currency === constants.AddressZero ?
         utils.parseEther(salePrice): 0 
 
     try {
@@ -249,7 +249,7 @@ export const cancelSellOrder = async (raffleId, ticketId) => {
 export const buyTicketWithSignature = async (
     raffleId, ticketId, currency, price, buyer, _signature
     ) => {
-    const valueToSend = currency === ethers.constants.AddressZero ?
+    const valueToSend = currency === constants.AddressZero ?
         price : 0 
 
     const signature = _signature.substring(2)
@@ -284,7 +284,7 @@ export const buyTicketWithSignature = async (
 
 export const getDecimals = async (contractAddress) => {
     try {
-        const contract = new ethers.Contract(contractAddress, ERC20ABI.abi, provider);
+        const contract = new Contract(contractAddress, ERC20ABI.abi, provider);
         const decimals = await contract.decimals();
         return decimals;
     } catch (e) {
@@ -303,7 +303,7 @@ export const getOpeningFee = async () => {
 
 export const approveToken = async (contractAddress, amount, recipient) => {
     try {
-        const contract = new ethers.Contract(contractAddress, ERC20ABI.abi, provider);
+        const contract = new Contract(contractAddress, ERC20ABI.abi, provider);
         const tx = await contract.connect(signer).approve(recipient, amount.toString());
         const receipt = await tx.wait();
         if (receipt.status !== 1) {
@@ -315,7 +315,7 @@ export const approveToken = async (contractAddress, amount, recipient) => {
 
 export const checkAllowance = async (contractAddress, to) => {
     try {
-        const contract = new ethers.Contract(contractAddress, ERC20ABI.abi, provider);
+        const contract = new Contract(contractAddress, ERC20ABI.abi, provider);
         const address = await signer.getAddress()
         const allowance = await contract.allowance(address, to);
         return allowance;
@@ -326,17 +326,17 @@ export const checkAllowance = async (contractAddress, to) => {
 
 export const checkApproved = async (contractAddress, tokenId) => {
     try {
-        const contract = new ethers.Contract(contractAddress, ERC721ABI.abi, provider);
+        const contract = new Contract(contractAddress, ERC721ABI.abi, provider);
         const approved = contract.getApproved(tokenId);
         return approved;
     } catch (e) {
-        return ethers.constants.AddressZero;
+        return constants.AddressZero;
     }
 }
 
 export const increaseAllowance = async (contractAddress, to, amount) => {
     try {
-        const contract = new ethers.Contract(contractAddress, ERC20ABI.abi, provider);
+        const contract = new Contract(contractAddress, ERC20ABI.abi, provider);
         const tx = await contract.connect(signer).increaseAllowance(
             to, amount
         );
@@ -464,7 +464,7 @@ export const signTransaction = async (
 
 export const getBalance = async (contractAddress) => {
     try {
-        const contract = new ethers.Contract(
+        const contract = new Contract(
             contractAddress,
             ERC20ABI.abi,
             signer
@@ -483,12 +483,12 @@ export const tokenFaucet = async (chainId) => {
     }
     const faucetAddress = chainId === 5 ? mainnetFaucet : l2Faucet
     try {
-        const faucetContract = new ethers.Contract(
+        const faucetContract = new Contract(
             faucetAddress,
             ERC20ABI.abi,
             signer
         );
-        const tx = await faucetContract.mint(await signer.getAddress(), ethers.utils.parseEther("100"));
+        const tx = await faucetContract.mint(await signer.getAddress(), utils.parseEther("100"));
         const receipt = await tx.wait();
         if (receipt.status !== 1) toast.warning("Could not mint tokens on this network")
         else toast.success("100 Test tokens minted")
@@ -501,7 +501,7 @@ export const tokenFaucet = async (chainId) => {
 /// Mint testnet NFT
 export const NFTFaucet = async () => {
     try {
-        const nftContract = new ethers.Contract(
+        const nftContract = new Contract(
             nftFaucet,
             ERC721ABI.abi,
             signer

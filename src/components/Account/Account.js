@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { connectors } from '../../utils/connectors'
 import { InjectedConnector } from '@web3-react/injected-connector'
 import { useWeb3React } from "@web3-react/core"
-import { ethers } from 'ethers'
+import { providers, utils } from 'ethers'
 import { blockExplorers, menuItems } from "../../utils/allChains"
 import { getEllipsisTxt } from "../../utils/formatting"
 import Chains from "../Chains/Chains";
@@ -40,10 +40,10 @@ export default function Account() {
 
         const getBalance = async () => {
             try {
-                const provider = new ethers.providers.Web3Provider(window.ethereum, "any")
+                const provider = new providers.Web3Provider(window.ethereum, "any")
                 const signer = provider.getSigner()
                 const balance = await signer.getBalance()
-                setUserNativeBalance(Number(ethers.utils.formatEther(balance.toString())).toFixed(2))
+                setUserNativeBalance(Number(utils.formatEther(balance.toString())).toFixed(2))
                 const net = menuItems.find(item => item.key === chainId)
                 if (net) {
                     setChainToken(net.value)

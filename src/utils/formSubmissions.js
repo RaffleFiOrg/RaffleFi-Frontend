@@ -15,7 +15,7 @@ import { approveToken,
     increaseAllowance,
     postBuyOrder,
 } from "./web3Functions";
-import { ethers, BigNumber, utils } from "ethers";
+import { BigNumber, constants, utils } from "ethers";
 import { 
     emptyMerkleProof, 
     emptyMerkleRoot, 
@@ -56,7 +56,7 @@ export const createRaffleForm = async (
                 return
             }
             // change the price per ticket to use correct decimals 
-            const pricePerTicket = ethers.utils.parseUnits(formDataObject.ticketprice, currencyDecimals)
+            const pricePerTicket = utils.parseUnits(formDataObject.ticketprice, currencyDecimals)
            
             const openingFee = await getOpeningFee();
             if (openingFee === BigNumber.from(-1)) return;
@@ -117,8 +117,8 @@ export const createRaffleForm = async (
                 }  
             } else {
                 // ERC20 
-                if (assetAddress === ethers.constants.AddressZero) {
-                    const assetIdOrAmount = ethers.utils.parseEther(formDataObject.amount)
+                if (assetAddress === constants.AddressZero) {
+                    const assetIdOrAmount = utils.parseEther(formDataObject.amount)
     
                     const openingFee = await getOpeningFee();
                     const valueToSend = BigNumber.from(
@@ -143,7 +143,7 @@ export const createRaffleForm = async (
                         return 
                     }
                     
-                    const assetIdOrAmount = ethers.utils.parseUnits(formDataObject.amount, decimals)
+                    const assetIdOrAmount = utils.parseUnits(formDataObject.amount, decimals)
                     const openingFee = await getOpeningFee();
     
                     // check if we have enough allowance
@@ -201,7 +201,7 @@ export const createRaffleForm = async (
                 }
             }
         } else {
-            const ticketPrice = ethers.utils.parseUnits(formDataObject.ticketprice, currencyDecimals)
+            const ticketPrice = utils.parseUnits(formDataObject.ticketprice, currencyDecimals)
     
             if (assetType === 'ERC20') {
                 const decimals = await getDecimals(assetAddress);
@@ -211,7 +211,7 @@ export const createRaffleForm = async (
                     return 
                 }
     
-                const amount = ethers.utils.parseUnits(formDataObject.amount, decimals)
+                const amount = utils.parseUnits(formDataObject.amount, decimals)
     
                 const fairRaffleFee = await getFairRaffleFee(
                     assetAddress,
@@ -260,7 +260,7 @@ export const buyATicketForm = async (
             return false; 
         }
 
-        if (currency === ethers.constants.AddressZero) {
+        if (currency === constants.AddressZero) {
             return await buyTickets(quantity, currency, pricePerTicket, raffleId, emptyMerkleRoot);
         } else {
             // 1. get current allowance 
@@ -323,7 +323,7 @@ export const buyATicketFromMarketplace = async (
                     saleData.currency, saleData.price, destination, saleData.signature
                 )
             }
-            if (saleData.currency === ethers.constants.AddressZero) {
+            if (saleData.currency === constants.AddressZero) {
                 await buy()
             } else {
                 const allowance = await checkAllowance(saleData.currency, ticketsAddress)
@@ -366,7 +366,7 @@ export const buyATicketFromMarketplace = async (
                 return await postBuyOrder(saleData.raffleId, saleData.ticketId, destination,
                     saleData.currency, saleData.price);
             }
-            if (saleData.currency === ethers.constants.AddressZero) {
+            if (saleData.currency === constants.AddressZero) {
                 await buy();
             } else {
                 const allowance = await checkAllowance(saleData.currency, ticketsAddress)

@@ -10,7 +10,6 @@ import { useWeb3React } from '@web3-react/core';
 
 export default function TicketsSlider(props) {
 
-    console.log(props)
     // If no data was passed, we don't render anything
     if (props.assetData.length === 0) return 
 

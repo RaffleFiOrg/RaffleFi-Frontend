@@ -36,9 +36,6 @@ export default function Raffles() {
         queryFn: _getWhitelistedCurrencies
     })
 
-    console.log(whitelistedCurrencies)
-
-
     // Inner component to render all raffles collections
     const RenderAll = () => {
         let data;

@@ -14,7 +14,8 @@ export default function BuyTicketCard(props) {
         ticketPrice = utils.formatUnits(props.data.price, props.data.currencyDecimals).toString()
     } catch (err) { 
         console.log(err)
-        return }
+        return 
+    }
     
     return (
         <Link 

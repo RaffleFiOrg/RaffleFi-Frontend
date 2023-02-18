@@ -3,12 +3,6 @@ import arbitrumLogo from '../assets/token-logos/arbitrum.svg'
 
 export const menuItems = [
     {
-      key: 1,
-      name: "Ethereum",
-      value: "ETH",
-      icon: ethLogo,
-    },
-    {
       key: 5,
       name: "Ethereum Goerli",
       value: "ETH",
